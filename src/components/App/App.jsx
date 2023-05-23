@@ -6,7 +6,9 @@ import { Filter } from 'components/Filter/Filter'
 import { Phonebook, Title, SubTitle } from 'components/App/App.styled'
 
 export const App = () => {
-    const [contacts, setContacts] = useState([]);
+    const [contacts, setContacts] = useState(
+      () => JSON.parse(localStorage.getItem('contacts')) ?? []
+    );
     const [filter, setFilter] = useState('');
 
   useEffect (() => {
